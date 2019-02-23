@@ -14,10 +14,10 @@ public class DaobabCreator {
     private static String PORT="3306";
     private static String USER="root";
     private static String PASS="admin";
-
    private static String SCHEMA="pizza";
+
    private static String JAVA_PACKAGE="io.daobab.example.springboot.blank.dao";
-   private static String FILE_DIRECTIRY_PATH ="C:\\DAOBAB_PROJECT_WORKSPACE\\daobab_blank_springboot\\src.main\\io\\daobab\\example\\springboot\\blank\\dao";
+   private static String FILE_DIRECTORY_PATH ="C:\\DAOBAB_PROJECT_WORKSPACE\\daobab_blank_springboot\\src.main\\io\\daobab\\example\\springboot\\blank\\dao";
 
 
 
@@ -25,7 +25,7 @@ public class DaobabCreator {
         ClassGenerator cg=new ClassGenerator(mySQLDatabase());
         cg.setSchema(SCHEMA);
         cg.setJavaPackage(JAVA_PACKAGE);
-        cg.setFileDirectoryPath(FILE_DIRECTIRY_PATH);
+        cg.setFileDirectoryPath(FILE_DIRECTORY_PATH);
         cg.setGenerateTypeScriptClasses(true);
 
         cg.createTables();
