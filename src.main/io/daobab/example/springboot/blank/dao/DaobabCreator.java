@@ -10,14 +10,14 @@ import javax.sql.DataSource;
 //@Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class DaobabCreator {
 
-    private static String IP="";
-    private static String PORT="";
-    private static String USER="";
-    private static String PASS="";
+    private static String IP="localhost";
+    private static String PORT="3306";
+    private static String USER="root";
+    private static String PASS="admin";
 
-   private static String SCHEMA="";
+   private static String SCHEMA="pizza";
    private static String JAVA_PACKAGE="io.daobab.example.springboot.blank.dao";
-   private static String FILE_DIRECTIRY_PATH ="C:\\daobab";
+   private static String FILE_DIRECTIRY_PATH ="C:\\DAOBAB_PROJECT_WORKSPACE\\daobab_blank_springboot\\src.main\\io\\daobab\\example\\springboot\\blank\\dao";
 
 
 
@@ -28,12 +28,14 @@ public class DaobabCreator {
         cg.setFileDirectoryPath(FILE_DIRECTIRY_PATH);
         cg.setGenerateTypeScriptClasses(true);
 
+        cg.createTables();
+
     }
 
     private static DataSource mySQLDatabase(){
 
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:mysql://"+IP+":"+PORT+"/"+SCHEMA+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+        config.setJdbcUrl("jdbc:mysql://"+IP+":"+PORT+"/"+SCHEMA+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false");
         config.setUsername(USER);
         config.setPassword(PASS);
         config.addDataSourceProperty("cachePrepStmts", "true");
